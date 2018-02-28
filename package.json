@@ -1,5 +1,5 @@
 {
-  "name": "os-info",
+  "name": "os-data",
   "version": "0.0.1",
   "description": "Get info about the OS running a node application",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guiconti/os-info.git"
+    "url": "git+https://github.com/guiconti/os-data.git"
   },
   "author": "Guilherme Conti Teixeira",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guiconti/os-info/issues"
+    "url": "https://github.com/guiconti/os-data/issues"
   },
-  "homepage": "https://github.com/guiconti/os-info#readme",
+  "homepage": "https://github.com/guiconti/os-data#readme",
   "dependencies": {
     "ffi": "^2.2.0",
     "get-pixels": "^3.3.0",

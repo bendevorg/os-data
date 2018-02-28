@@ -15,5 +15,3 @@ fs.readdirSync(featuresPath).forEach(file => {
 });
 
 module.exports = os;
-
-console.log(os);

@@ -1,6 +1,6 @@
 {
   "name": "os-data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Get info about the OS running a node application",
   "main": "index.js",
   "scripts": {

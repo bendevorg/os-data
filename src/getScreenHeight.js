@@ -10,5 +10,7 @@ const user32 = require('./win32/user32');
  * @return {int} Screen height in pixels
 */
 module.exports = () => {
-  return user32.GetSystemMetrics(1);
+  return new Promise((resolve, reject) => {
+    return resolve(user32.GetSystemMetrics(1));
+  });
 };

@@ -10,5 +10,7 @@ const user32 = require('./win32/user32');
  * @return {int} Active screen number
 */
 module.exports = () => {
-  return user32.GetForegroundWindow(null);
+  return new Promise((resolve, reject) => {
+    return resolve(user32.GetForegroundWindow(null));
+  });
 };

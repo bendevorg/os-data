@@ -10,13 +10,15 @@ const user32 = require('./win32/user32');
  * @return {object} An object containing the x and y position in pixels.
 */
 module.exports = () => {
-  let mouseBuffer = new Buffer(16);
-  user32.GetCursorPos(mouseBuffer);
+  return new Promise((resolve, reject) => {
+    let mouseBuffer = new Buffer(16);
+    user32.GetCursorPos(mouseBuffer);
 
-  let mousePosition = {
-    x: mouseBuffer[0] + (mouseBuffer[1] * 256),
-    y: mouseBuffer[4] + (mouseBuffer[5] * 256)
-  };
+    let mousePosition = {
+      x: mouseBuffer[0] + (mouseBuffer[1] * 256),
+      y: mouseBuffer[4] + (mouseBuffer[5] * 256)
+    };
 
-  return mousePosition;
+    return resolve(mousePosition);
+  });
 };

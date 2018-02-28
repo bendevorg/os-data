@@ -4,6 +4,8 @@
 */
 
 const user32 = require('./win32/user32');
+const validator = require('./utils/validator');
+const constants = require('./utils/constants');
 
 /**
  * Find the application id
@@ -11,6 +13,10 @@ const user32 = require('./win32/user32');
  * @param {string} applicationName The app name
  * @return {int} The application id
 */
-module.exports = () => {
-  return user32.FindWindowA(null, applicationName);
+module.exports = applicationName => {
+  return new Promise((resolve, reject) => {
+    if (!validator.validator(applicationName))
+      return reject(constants.error.INVALID_APPLICATION_NAME);
+    return resolve(user32.FindWindowA(null, applicationName));
+  });
 };

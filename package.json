@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/guiconti/os-info#readme",
   "dependencies": {
-    "ffi": "^2.2.0"
+    "ffi": "^2.2.0",
+    "get-pixels": "^3.3.0",
+    "screenshot-desktop": "^1.3.1"
   }
 }

@@ -16,6 +16,7 @@ const Rect = Struct({
   'Right': 'int',
   'Bottom': 'int'
 });
+
 const rectPtr = ref.refType(Rect);
 
 const Point = Struct({
@@ -28,6 +29,8 @@ const Point = Struct({
 const pointPtr = ref.refType(Point);
 
 module.exports = {
+  Rect: Rect,
+  Point: Point,
   voidPtr: voidPtr,
   stringPtr: stringPtr,
   intPtr: intPtr,

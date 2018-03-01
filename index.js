@@ -1,12 +1,14 @@
 /*!
- * os-info
+ * os-data
  * Copyright(c) 2018-2019 Guilherme Conti Teixeira
  * MIT Licensed
 */
 
-let os = {};
-const featuresPath = process.cwd() + '/src/';
+const path = require('path');
 const fs = require('fs');
+
+let os = {};
+const featuresPath = path.join(__dirname, '/src/');
 
 fs.readdirSync(featuresPath).forEach(file => {
   if (file.indexOf('.js') !== -1){

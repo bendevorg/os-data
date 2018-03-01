@@ -10,7 +10,6 @@ const constants = require('./utils/constants');
 
 /**
  * Get window position in pixels
- * @access public
  * @param {int} windowNumber Window id number
  * @return {object} Window position
 */

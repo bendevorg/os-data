@@ -9,7 +9,6 @@ const constants = require('./utils/constants');
 
 /**
  * Find the application id
- * @access public
  * @param {string} applicationName The app name
  * @return {int} The application id
 */

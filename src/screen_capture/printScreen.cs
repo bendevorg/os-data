@@ -68,10 +68,8 @@ public class ScreenCapture{
     img.Save(filename, format);
   }
 
-  static bool fullscreen = true;
   static String file = "screenshot.png";
   static System.Drawing.Imaging.ImageFormat format = System.Drawing.Imaging.ImageFormat.Bmp;
-  static String windowTitle = "";
   static int windowNumber = -1;
   static List<MonitorInfoWithHandle> _monitorInfos;
 

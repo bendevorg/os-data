@@ -17,7 +17,7 @@ public class ScreenCapture{
 
   public Image CaptureScreen(){
     if (windowNumber == -1){
-      CaptureSpecificWindow();
+      return CaptureWindow(new IntPtr(0));
       if (capturedImage != null){
         return capturedImage;
       }
@@ -43,6 +43,8 @@ public class ScreenCapture{
     // get the size
     int width = windowRect.right - windowRect.left;
     int height = windowRect.bottom - windowRect.top;
+    Console.WriteLine(width);
+    Console.WriteLine(height);
     // create a device context we can copy to
     IntPtr hdcDest = GDI32.CreateCompatibleDC(hdcSrc);
     // create a bitmap we can copy it to,
@@ -51,7 +53,7 @@ public class ScreenCapture{
     // select the bitmap object
     IntPtr hOld = GDI32.SelectObject(hdcDest, hBitmap);
     // bitblt over
-    GDI32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, windowRect.left, windowRect.top, GDI32.SRCCOPY);
+    GDI32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 26, GDI32.SRCCOPY);
     // restore selection
     GDI32.SelectObject(hdcDest, hOld);
     // clean up
@@ -169,6 +171,12 @@ public class ScreenCapture{
       public int bottom;
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct POINT{
+      public int x;
+      public int y;
+    }
+
     [DllImport("user32.dll")]
     public static extern IntPtr GetDC(IntPtr hWnd);
     [DllImport("user32.dll")]
@@ -179,6 +187,10 @@ public class ScreenCapture{
     public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
     [DllImport("user32.dll")]
     public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
+    [DllImport("user32.dll")]
+    public static extern IntPtr GetClientRect(IntPtr hWnd, ref RECT rect);
+    [DllImport("user32.dll")]
+    public static extern IntPtr ClientToScreen(IntPtr hWnd, ref POINT point);
     [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
 
@@ -208,32 +220,6 @@ public class ScreenCapture{
       MonitorHandle = monitorHandle;
       MonitorInfo = monitorInfo;
     }
-  }
-
-  private static bool MonitorEnum(IntPtr hMonitor, IntPtr hdcMonitor, ref User32.RECT lprcMonitor, IntPtr dwData){
-    var mi = new User32.MONITORINFOEX();
-    mi.size = (uint)Marshal.SizeOf(mi);
-    User32.GetMonitorInfo(hMonitor, ref mi);
-
-    _monitorInfos.Add(new MonitorInfoWithHandle(hMonitor, mi));
-    return true;
-  }
-
-  private static bool CaptureMonitorEnum(IntPtr hMonitor, IntPtr hdcMonitor, ref User32.RECT lprcMonitor, IntPtr dwData){
-    var mi = new User32.MONITORINFOEX();
-    mi.size = (uint)Marshal.SizeOf(mi);
-    User32.GetMonitorInfo(hMonitor, ref mi);
-    if (mi.DeviceName.ToLower().Equals(deviceName.ToLower())) {
-      Console.WriteLine("hMonitor is {0}, hdcMonitor is {1}", hMonitor, hdcMonitor);
-      capturedImage = CaptureWindowFromDC(hMonitor, hdcMonitor, lprcMonitor);
-    }
-    return true;
-  }
-
-  public static void CaptureSpecificWindow(){
-    IntPtr hdc = User32.GetDC(IntPtr.Zero);
-    User32.EnumDisplayMonitors(hdc, IntPtr.Zero, CaptureMonitorEnum, IntPtr.Zero);
-    User32.ReleaseDC(IntPtr.Zero, hdc);
   }
 
 }

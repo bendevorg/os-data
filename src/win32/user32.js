@@ -11,6 +11,7 @@ const user32 = ffi.Library('user32', {
   'GetSystemMetrics': ['int', ['int']],
   'GetCursorPos': ['bool', ['pointer']],
   'GetDC': ['pointer', ['int']],
+  'GetWindowDC': ['pointer', ['int']],
   'GetForegroundWindow': ['int', ['void']],
   'FindWindowA': ['int', ['string', 'string']],
   'GetWindowRect': ['bool', ['int', pointers.rectPtr]],

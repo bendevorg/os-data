@@ -15,7 +15,7 @@ const constants = require('./utils/constants');
 */
 module.exports = windowNumber => {
   return new Promise((resolve, reject) => {
-    if (!validator.isValidInteger(windowNumber));
+    if (!windowNumber);
       return reject(constants.error.INVALID_WINDOW);
     let window = new pointers.Rect();
     let point = new pointers.Point();

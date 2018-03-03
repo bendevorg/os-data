@@ -14,7 +14,7 @@ const constants = require('./utils/constants');
 */
 module.exports = applicationName => {
   return new Promise((resolve, reject) => {
-    if (!validator.validator(applicationName))
+    if (!validator.isValidString(applicationName))
       return reject(constants.error.INVALID_APPLICATION_NAME);
     return resolve(user32.FindWindowA(null, applicationName));
   });

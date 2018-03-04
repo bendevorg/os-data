@@ -19,7 +19,7 @@ module.exports = (windowNumber, filename) => {
   return new Promise((resolve, reject) => {
     if (!windowNumber)
       return reject(constants.error.INVALID_WINDOW);
-    const tmpPath = temp.path({ suffix: '.jpg' });
+    const tmpPath = temp.path({ suffix: '.png' });
     const imgPath = path.resolve(filename || tmpPath);
     exec('"' + path.join(__dirname, '/screen_capture/screen_capture.bat') + '" ' + windowNumber + ' ' + imgPath, {
       cwd: __dirname

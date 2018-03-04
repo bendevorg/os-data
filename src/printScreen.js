@@ -24,7 +24,6 @@ module.exports = (windowNumber, filename) => {
     exec('"' + path.join(__dirname, '/screen_capture/screen_capture.bat') + '" ' + windowNumber + ' ' + imgPath, {
       cwd: __dirname
     }, (err, stdout) => {
-      console.log(stdout);
       if (err) {
         return reject(err);
       } else {

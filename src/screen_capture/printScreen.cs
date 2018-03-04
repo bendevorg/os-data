@@ -43,8 +43,7 @@ public class ScreenCapture{
     // get the size
     int width = windowRect.right - windowRect.left;
     int height = windowRect.bottom - windowRect.top;
-    Console.WriteLine(width);
-    Console.WriteLine(height);
+
     // create a device context we can copy to
     IntPtr hdcDest = GDI32.CreateCompatibleDC(hdcSrc);
     // create a bitmap we can copy it to,

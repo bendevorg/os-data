@@ -18,6 +18,7 @@ const user32 = ffi.Library('user32', {
   'GetClientRect': ['bool', ['int', pointers.rectPtr]],
   'ClientToScreen': ['bool', ['int', pointers.pointPtr]],
   'GetWindowTextA': ['int', ['int', pointers.stringPtr, 'int']],
+  'SetForegroundWindow': ['int', ['int']],
   'PrintWindow': ['bool', ['int', 'pointer', 'int']],
   'OpenClipboard': ['bool', ['int']],
   'EmptyClipboard': ['bool', ['void']],

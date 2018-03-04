@@ -1,9 +1,9 @@
 const findApplicationId = require('./src/findApplicationId');
-const printScreen = require('./src/printScreen');
+const setActiveWindow = require('./src/setActiveWindow');
 
 findApplicationId('ragnaHOPE | Gepard Shield 2.0 (^-_-^)')
   .then(windowNumber => {
-    printScreen(windowNumber, 'a.png')
+    setActiveWindow(windowNumber)
       .then(img => {
         console.log(img);
       })

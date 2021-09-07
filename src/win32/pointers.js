@@ -3,8 +3,8 @@
  * @module win32/pointers
 */
 
-const ref = require('ref');
-const Struct = require('ref-struct');
+const ref = require('ref-napi');
+const Struct = require('ref-struct-napi');
 
 const voidPtr = ref.refType(ref.types.void);
 const stringPtr = ref.refType(ref.types.CString);

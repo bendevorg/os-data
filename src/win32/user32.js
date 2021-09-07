@@ -3,7 +3,7 @@
  * @module win32/user32
 */
 
-const ffi = require('ffi');
+const ffi = require('ffi-napi');
 const pointers = require('./pointers');
 
 //  Import our operational system info
@@ -23,7 +23,8 @@ const user32 = ffi.Library('user32', {
   'OpenClipboard': ['bool', ['int']],
   'EmptyClipboard': ['bool', ['void']],
   'SetClipboardData': ['pointer', ['int', 'int']],
-  'CloseClipboard': ['bool', ['void']]
+  'CloseClipboard': ['bool', ['void']],
+  'EnumWindows': ['bool', [pointers.voidPtr, 'int']],
 });
 
 module.exports = user32;

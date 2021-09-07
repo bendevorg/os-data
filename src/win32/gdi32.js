@@ -3,7 +3,7 @@
  * @module win32/gdi32
 */
 
-const ffi = require('ffi');
+const ffi = require('ffi-napi');
 const pointers = require('./pointers');
 
 const gdi32 = ffi.Library('gdi32', {

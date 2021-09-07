@@ -1,6 +1,6 @@
 {
   "name": "os-data",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Get info about the OS running a node application",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/guiconti/os-data#readme",
   "dependencies": {
-    "ffi": "^2.2.0",
-    "temp": "^0.8.3"
+    "ffi-napi": "^4.0.3",
+    "ref-napi": "^3.0.3",
+    "ref-struct-napi": "^1.1.1",
+    "temp": "^0.9.4"
   }
 }

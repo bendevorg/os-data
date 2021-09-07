@@ -34,7 +34,6 @@ module.exports = (applicationName) => {
         0
       );
     }
-    console.log(id);
     return resolve(id);
   });
 };

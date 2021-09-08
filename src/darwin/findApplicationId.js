@@ -17,7 +17,10 @@ const constants = require("../utils/constants");
      if (!validator.isValidString(applicationName))
        return reject(constants.error.INVALID_APPLICATION_NAME);
      exec(`pgrep -x ${applicationName}`, (error, applicationId) => {
-      return resolve(applicationId);
+        if (error) {
+          return reject(error);
+        }
+        return resolve(applicationId);
      });
    });
  };

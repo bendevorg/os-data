@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 
 let os = {};
-const featuresPath = path.join(__dirname, `/src/${process.platform === 'win32' ? 'windows' : 'darwin'}`);
+const featuresPath = path.join(__dirname, `/src/${process.platform === 'win32' ? 'windows' : 'darwin'}/`);
 
 fs.readdirSync(featuresPath).forEach(file => {
   if (file.indexOf('.js') !== -1){

@@ -4,8 +4,7 @@
 */
 
 const user32 = require('./win32/user32');
-const validator = require('./utils/validator');
-const constants = require('./utils/constants');
+const constants = require('../utils/constants');
 
 /**
  * Activate window

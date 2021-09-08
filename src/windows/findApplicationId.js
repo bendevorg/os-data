@@ -5,8 +5,8 @@
 const ffi = require("ffi-napi");
 const ref = require("ref-napi");
 const user32 = require("./win32/user32");
-const validator = require("./utils/validator");
-const constants = require("./utils/constants");
+const validator = require("../utils/validator");
+const constants = require("../utils/constants");
 
 /**
  * Find the application id

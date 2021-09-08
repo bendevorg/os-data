@@ -4,8 +4,8 @@
 */
 
 const gdi32 = require('./win32/gdi32');
-const validator = require('./utils/validator');
-const constants = require('./utils/constants');
+const validator = require('../utils/validator');
+const constants = require('../utils/constants');
 
 /**
  * Get the pixel color at the x and y position
@@ -22,7 +22,7 @@ module.exports = (windowScreen, x, y) => {
       return reject(constants.error.INVALID_X);
     if (!validator.isValidInteger(y))
       return reject(constants.error.INVALID_Y);
-    let pixel = gdi.GetPixel(windowsScreen, x, y);
+    let pixel = gdi32.GetPixel(windowsScreen, x, y);
     let rgb = {
       red: pixel & 0x000000FF,
       green: (pixel & 0x0000FF00) >> 8,

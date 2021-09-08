@@ -1,6 +1,6 @@
-const findApplicationId = require('./src/findApplicationId');
-const setActiveWindow = require('./src/setActiveWindow');
-const printScreen = require('./src/printScreen');
+const findApplicationId = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/findApplicationId`);
+const setActiveWindow = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/setActiveWindow`);
+const printScreen = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/printScreen`);
 
 findApplicationId('?ok???O')
   .then(windowNumber => {

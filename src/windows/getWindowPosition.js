@@ -5,8 +5,7 @@
 
 const user32 = require('./win32/user32');
 const pointers = require('./win32/pointers');
-const validator = require('./utils/validator');
-const constants = require('./utils/constants');
+const constants = require('../utils/constants');
 
 /**
  * Get window position in pixels

@@ -6,8 +6,8 @@
 const temp = require('temp');
 const path = require('path');
 const exec = require('child_process').exec;
-const fileManager = require('./utils/fileManager');
-const constants = require('./utils/constants');
+const fileManager = require('../utils/fileManager');
+const constants = require('../utils/constants');
 
 /**
  * Get window`s image buffer

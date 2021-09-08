@@ -1,12 +1,12 @@
 const findApplicationId = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/findApplicationId`);
 const setActiveWindow = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/setActiveWindow`);
-const printScreen = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/printScreen`);
+// const printScreen = require(`./src/${process.platform === 'win32' ? 'windows' : 'darwin'}/printScreen`);
 
-findApplicationId('?ok???O')
+findApplicationId('java')
   .then(windowNumber => {
     setActiveWindow(windowNumber)
       .then(() => {
-        printScreen(windowNumber, 'test.jpg')
+        // printScreen(windowNumber, 'test.jpg')
       })
       .catch(err => {
         console.log(err);

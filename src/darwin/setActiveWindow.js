@@ -12,11 +12,7 @@ const exec = require('child_process').exec;
 
 module.exports = (applicationId) => {
   return new Promise((resolve, reject) => {
-    exec(
-      `osascript -e "
-      tell application \"System Events\"
-        set frontmost of the first process whose unix id is ${applicationId} to true
-      end tell"`,
+    exec(`osascript -e 'tell application "System Events"' -e 'set frontmost of the first process whose unix id is ${applicationId} to true' -e 'end tell'`,
       (error, stoud) => {
         if (error) {
           return reject(error);

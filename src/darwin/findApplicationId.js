@@ -21,7 +21,6 @@ const constants = require("../utils/constants");
           return reject(error);
         }
         applicationId = applicationId.replace(/\n/gm, '');
-        console.log(applicationId);
         return resolve(applicationId);
      });
    });

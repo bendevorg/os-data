@@ -6,7 +6,7 @@ const exec = require('child_process').exec;
 const path = require('path');
 const fs = require('fs');
 
-module.exports = (windowId, fileName) => {
+module.exports = (fileName) => {
   return new Promise((resolve, reject) => {
     const pathName = path.resolve(`./${fileName}`);
     exec
